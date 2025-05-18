@@ -1,1 +1,205 @@
-# testsite
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Happy Birthday</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Grandstander:wght@700&display=swap');
+  /* Reset and base */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body, html {
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Grandstander', cursive, sans-serif;
+    position: relative;
+  }
+
+  /* Video background style */
+  #bg-video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+  }
+
+  /* Center "Happy Birthday" text with glowing & breathing pulsation animation */
+  .center-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ff4d7a;
+    font-size: 6vw;
+    text-align: center;
+    user-select: none;
+    z-index: 10;
+    text-shadow:
+      0 0 8px #ff4d7a,
+      0 0 16px #ff6c92,
+      0 0 24px #ff6c92,
+      0 0 32px #ff6c92;
+    animation: breatheGlow 4s ease-in-out infinite, scalePulse 5s ease-in-out infinite;
+  }
+
+  @keyframes breatheGlow {
+    0%, 100% {
+      text-shadow:
+        0 0 8px #ff4d7a,
+        0 0 16px #ff6c92,
+        0 0 24px #ff6c92,
+        0 0 32px #ff6c92;
+      color: #ff4d7a;
+    }
+    50% {
+      text-shadow:
+        0 0 20px #ff7faa,
+        0 0 32px #ff7faa,
+        0 0 48px #ff88bb,
+        0 0 64px #ff88bb;
+      color: #ff6c92;
+    }
+  }
+
+  @keyframes scalePulse {
+    0%, 100% {
+      transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.05);
+    }
+  }
+
+  /* Heart shape style for pop out hearts */
+  .heart {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    background: #ff377f;
+    transform: rotate(-45deg);
+    animation-timing-function: cubic-bezier(0.5, 0, 0.5, 1);
+    filter: drop-shadow(0 0 4px #ff377f);
+    z-index: 10;
+  }
+  .heart:before,
+  .heart:after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #ff377f;
+    border-radius: 50%;
+    z-index: 10;
+  }
+  .heart:before {
+    top: -10px;
+    left: 0;
+  }
+  .heart:after {
+    left: 10px;
+    top: 0;
+  }
+</style>
+</head>
+<body>
+
+<video id="bg-video" autoplay muted loop playsinline>
+  <source src="https://rr3---sn-npoe7nlz.googlevideo.com/videoplayback?expire=1747617754&ei=ejMqaJSyJ9iCp-oP_uC3sQw&ip=196.189.113.11&id=o-AIsVa-FAm1uK-b073DGD--xdqWbhk_4LXkD3Yi_0cxud&itag=136&aitags=134%2C136%2C137%2C160%2C243&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&pcm2=no&bui=AecWEAaGQftBfM4zhQI-K1ftwcebgLYWgH_5uoyvrSXZkizoN8Yj2K8kPUBZ1VQ9h-849AMF8kDLtYVk&vprv=1&svpuc=1&mime=video%2Fmp4&ns=_fWlk9nexndRe7AD0dKsOucQ&rqh=1&gir=yes&clen=253850088&dur=1860.658&lmt=1721512506454122&keepalive=yes&lmw=1&fexp=24350301,24350590,24350737,24350827,24350961,24351173,24351177,24351495,24351528,24351594,24351638,24351658,24351661,24351662,24351759,24351789,24351864,24351866,24351907,24351915,24351984,24352018,24352023,51466697&c=TVHTML5&sefc=1&txp=6219224&n=mtNogC0kVCWbOA&sparams=expire%2Cei%2Cip%2Cid%2Caitags%2Csource%2Crequiressl%2Cxpc%2Cpcm2%2Cbui%2Cvprv%2Csvpuc%2Cmime%2Cns%2Crqh%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRAIgf1SoW9NVtyHU3NKZLA7dP4c_AYtZdhHl4vBdJhQDp-0CIHK_mn-HvKczOwIE0ZW3CAJgtmSlUFKsthe1yZUDWMkh&rm=sn-xuj-5qq67e&rrc=79,80&req_id=806615b6c04da3ee&redirect_counter=2&cm2rm=sn-p5qees7z&cms_redirect=yes&cmsv=e&met=1747596298,&mh=7D&mip=2409:40d0:3102:8638:1144:600b:496a:dc89&mm=34&mn=sn-npoe7nlz&ms=ltu&mt=1747595081&mv=u&mvi=3&pl=40&rms=ltu,au&lsparams=met,mh,mip,mm,mn,ms,mv,mvi,pl,rms&lsig=ACuhMU0wRQIgHdlRWITXzudTogi6Ob7wwZ9mBbnfrg08JEPNef-fst8CIQDSoPqI_XqWRjAofp_KjDX1Vw6ptij1nlpcOxihjlPmRA%3D%3D" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+<div class="center-text" aria-label="Happy Birthday">Happy Birthday</div>
+
+<script>
+  const heartsContainer = document.body;
+  const heartColors = ['#ff377f', '#ff1f65', '#ff4d79', '#ff6699'];
+
+  // Create hearts popping from both left and right sides
+  function createHeart() {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    const size = Math.random() * 15 + 10; // 10px to 25px
+    heart.style.width = size + 'px';
+    heart.style.height = size + 'px';
+
+    const color = heartColors[Math.floor(Math.random() * heartColors.length)];
+    heart.style.background = color;
+    heart.style.filter = 'drop-shadow(0 0 5px ' + color + ')';
+
+    // Random side: 0 for left, 1 for right
+    const side = Math.random() < 0.5 ? 'left' : 'right';
+    const viewportHeight = window.innerHeight;
+    // Random vertical start position between 15% and 85% of screen height
+    const startY = Math.random() * 0.7 * viewportHeight + 0.15 * viewportHeight;
+
+    // Start positions
+    let startX;
+    let endX;
+    if (side === 'left') {
+      startX = -size; // start just off screen left
+      endX = window.innerWidth + size; // move out to right past screen
+    } else {
+      startX = window.innerWidth + size; // start just off screen right
+      endX = -size; // move out to left past screen
+    }
+
+    heart.style.left = startX + 'px';
+    heart.style.top = startY + 'px';
+
+    heartsContainer.appendChild(heart);
+
+    // Animate: move horizontally across screen and fade out
+    const duration = 5000 + Math.random() * 3000; // 5-8 sec
+    const amplitudeY = 30 + Math.random() * 30; // vertical sine wave amplitude
+
+    let startTime = null;
+    function animate(time) {
+      if (!startTime) startTime = time;
+      const elapsed = time - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+
+      // Horizontal linear movement
+      const currentX = startX + (endX - startX) * progress;
+
+      // Vertical sine oscillation for smooth wave effect
+      const waveY = amplitudeY * Math.sin(progress * 4 * Math.PI);
+
+      heart.style.left = currentX + 'px';
+      heart.style.top = (startY + waveY) + 'px';
+
+      // Opacity fade out to 0 near the end
+      if (progress > 0.8) {
+        heart.style.opacity = 1 - (progress - 0.8) / 0.2;
+      } else {
+        heart.style.opacity = 1;
+      }
+
+      // Slight scale pulse
+      const scale = 1 + 0.3 * Math.sin(progress * 2 * Math.PI);
+      heart.style.transform = `rotate(-45deg) scale(${scale.toFixed(3)})`;
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      } else {
+        heart.remove();
+      }
+    }
+    requestAnimationFrame(animate);
+  }
+
+  // Spawn hearts continuously, about every 100ms
+  setInterval(createHeart, 100);
+
+</script>
+
+</body>
+</html>
+
